@@ -6,11 +6,6 @@ import (
 	"time"
 )
 
-// "+998123456789",// Kорректный номер
-// "998123456789",// Kорректный номер
-// "+997123456789", // Некорректный номер
-// "99812345678", // Некорректный номер
-
 func ValidatePhone(phone string) error {
 	phoneRegex := regexp.MustCompile(`^\+998[0-9]{9}$`)
 	if !phoneRegex.MatchString(phone) {
@@ -20,8 +15,7 @@ func ValidatePhone(phone string) error {
 }
 
 func ValidateMail(mail string) error {
-	mailRegex := regexp.MustCompile(`^[a-zA-Z0-9._%+-]+@(gmail\.com|mail\.ru)$
-	`)
+	mailRegex := regexp.MustCompile(`^[a-zA-Z0-9._%+-]+@(gmail\.com|mail\.ru)$`)
 	if mailRegex.MatchString(mail) {
 		return errors.New("mail is not valid")
 	}
